@@ -27,7 +27,7 @@ function chdu = chdu_connect()
         chdu = CHDU();
         disp('Connection established')
     catch e
-        disp('Error', e)
+        disp(strcat('Error: \n', e))
         disp('Can not connect to server... Please try later')
         return
     end
