@@ -8,10 +8,14 @@ classdef CHDU
    end
    methods
        function obj = CHDU()
-           [obj, ok] = obj.chdu_connect();
-
+           [obj, ok_code] = obj.chdu_connect();
+           if ok_code.statusCode ~= 200
+               fprintf('Server error')
+               return
+           end
+           
            obj.file_directory = 'files';
-           obj.auth_filename = 'client/auth_config.json';
+           obj.auth_filename = 'auth_config.json';
            if exist(obj.auth_filename, 'file') == 2
                obj = obj.read_auth_config();
            else
@@ -21,7 +25,6 @@ classdef CHDU
                mkdir(obj.file_directory);
            end
            addpath(obj.file_directory)
-           fprintf('CHDU session was started\n')
        end
        function [obj, ok] = chdu_connect(obj)
            obj.servername = 'http://127.0.0.1:5000';
@@ -30,6 +33,15 @@ classdef CHDU
 %            , ...
 %                'CertificateFilename', 'client/hdu_checker_pub.pem');
            ok = webread(strcat(obj.servername,'/ok'), obj.connect_options);
+       end
+       function ok = login(obj)
+           try
+               request_msg.auth = obj.auth_data;
+               response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
+           catch e
+               ok = 0;
+           end
+           ok = 1;
        end
        function obj = read_auth_config(obj)
            fid = fopen(obj.auth_filename); 
@@ -40,19 +52,20 @@ classdef CHDU
        function obj = get_auth_data(obj)
            obj.auth_data = struct;
            fprintf('\n\n***Registration***\n');
-           obj.auth_data.name = input('Your name: ', 's');
-           obj.auth_data.id = input('Your ID: ', 's');
+           obj.auth_data.name = input('Your full name: ', 's');
+           obj.auth_data.id = input('Your HDU ID: ', 's');
            obj.auth_data.email = input('Type your affiliated with university EMail: ', 's');
            request_msg.auth = obj.auth_data;
-           response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
-           if response_msg.isError == 1
+           try
+               response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
+           catch e
+               disp('Error: ')
+               disp(e)
+               disp("Invalid registration info")
                return
            end
            obj.auth_data.token = input('Key from EMail: ', 's');
-           response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
-           if response_msg.isError == 1
-               return
-           end
+
            fid=fopen(obj.auth_filename,'w');
            fprintf(fid, jsonencode(obj.auth_data));
        end
@@ -60,12 +73,13 @@ classdef CHDU
            request_msg.auth = obj.auth_data;
            request_msg.number = number;
            response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
-           task.parameters = response_msg.data.parameters
-           task.answers = response_msg.data.answers
-           task.files = cell2mat(response_msg.data.files)
-%            disp(task)
+           task.number = number;
+           task.parameters = response_msg.data.parameters;
+           task.answers = response_msg.data.answers;
+           task.files = response_msg.data.files;
            for i=1:size(task.files,1)
-               websave(strcat(obj.file_directory, task.files(i),'.pdf'),strcat(obj.servername,task.files), obj.connect_options);
+               [p, name, ext] = fileparts(task.files{i});
+               websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.servername,task.files), obj.connect_options);
            end 
        end
        function score = send_task(obj, task)

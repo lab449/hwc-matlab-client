@@ -1,11 +1,11 @@
 function chdu = chdu_connect()
-    fr = fopen('client/version.txt', 'r');
+    fr = fopen('version.txt', 'r');
     current_hash = fscanf(fr, '%s');
     fclose(fr);
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
-        version_response = webread(strcat('http://127.0.0.1:5000','/client_version'), connect_options);
+        version_response = webread(strcat('http://127.0.0.1:5000','/matlab_client_version'), connect_options);
         if version_response.isError
             return
         else
@@ -13,22 +13,24 @@ function chdu = chdu_connect()
             check_hash = strcmp(new_hash, current_hash);
 %             disp(check_hash)
             if ~check_hash
-                fr = fopen('client/version.txt', 'w');
+                fr = fopen('version.txt', 'w');
                 fwrite(fr, new_hash);
                 fclose(fr);
-%             websave(strcat('http://127.0.0.1:5000','/client/CHDU.m') ,strcat(obj.servername,'/client/CHDU.m'), obj.connect_options);
+                disp("Client updating!")
+%                 websave(strcat('http://127.0.0.1:5000','/hwc-matlab-client/CHDU.m') ,strcat(obj.servername,'/hwc-matlab-client/CHDU.m'), obj.connect_options);
             end
         end
     catch
         disp('Can not get client version... Please try later')
         return
     end
-    try
-        chdu = CHDU();
+    chdu = CHDU();
+    ok = chdu.login();
+    if ~ok
+        fprintf('Invalid authentification data. Please use first the chdu_reset() and then repeat chdu_connect()\n')
+        fprintf('CHDU session can not be started\n')
+        chdu = nan;
+    else
         disp('Connection established')
-    catch e
-        disp(strcat('Error: \n', e))
-        disp('Can not connect to server... Please try later')
-        return
     end
 end

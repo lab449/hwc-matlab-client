@@ -1,1 +1,6 @@
-auth_config.json
+*
+!.gitignore
+!chdu_reset.m
+!chdu_connect.m
+!version.txt
+!CHDU.m
