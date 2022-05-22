@@ -86,7 +86,10 @@ classdef CHDU
            request_msg.auth = obj.auth_data;
            request_msg.task = task;
            response_msg = webwrite(strcat(obj.servername,'/send_task'), request_msg, obj.connect_options);
-           score = jsondecode(response_msg).Score;
+           if response_msg.message ~= ""
+               disp(response_msg.message)
+           end
+           score = response_msg.data;
        end
    end
 end

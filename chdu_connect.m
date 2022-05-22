@@ -16,8 +16,8 @@ function chdu = chdu_connect()
                 fr = fopen('version.txt', 'w');
                 fwrite(fr, new_hash);
                 fclose(fr);
-                disp("Client updating!")
-%                 websave(strcat('http://127.0.0.1:5000','/hwc-matlab-client/CHDU.m') ,strcat(obj.servername,'/hwc-matlab-client/CHDU.m'), obj.connect_options);
+                disp("Please update client")
+                return
             end
         end
     catch
