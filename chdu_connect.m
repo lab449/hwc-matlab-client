@@ -24,12 +24,20 @@ function chdu = chdu_connect()
         disp('Can not get client version... Please try later')
         return
     end
-    chdu = CHDU();
-    ok = chdu.login();
+    ok = 0;
+    chdu = nan;
+    try
+        chdu = CHDU();
+        ok = chdu.login();
+    catch e
+        disp('Error: ')
+        disp(e)
+        disp("Invalid registration info")
+        return
+    end
     if ~ok
         fprintf('Invalid authentification data. Please use first the chdu_reset() and then repeat chdu_connect()\n')
         fprintf('CHDU session can not be started\n')
-        chdu = nan;
     else
         disp('Connection established')
     end

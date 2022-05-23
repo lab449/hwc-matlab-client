@@ -56,14 +56,7 @@ classdef CHDU
            obj.auth_data.id = input('Your HDU ID: ', 's');
            obj.auth_data.email = input('Type your affiliated with university EMail: ', 's');
            request_msg.auth = obj.auth_data;
-           try
-               response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
-           catch e
-               disp('Error: ')
-               disp(e)
-               disp("Invalid registration info")
-               return
-           end
+           response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
            obj.auth_data.token = input('Key from EMail: ', 's');
 
            fid=fopen(obj.auth_filename,'w');
