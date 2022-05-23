@@ -43,17 +43,17 @@ After registration you can connect at any time with
 
 For getting first task(lab) you must type:  
 ```python
-    chdu.get_task(1)
+    task = chdu.get_task(1)
 ```
 
 For other tasks(labs) you must type desired number:  
 ```python
-    chdu.get_task(laboratory_number)
+    task = chdu.get_task(laboratory_number)
 ```
 
 The case will be generated on the first call. After that, you can retrieve your task at any time with  
 ```python
-    chdu.get_task(laboratory_number)
+    task = chdu.get_task(laboratory_number)
 ```
 
 <img src="https://i.imgur.com/l8p7nNc.png" alt="task" width="79%"/>
