@@ -26,8 +26,8 @@ function chdu = chdu_connect()
     end
     ok = 0;
     chdu = nan;
-    try
         chdu = CHDU();
+    try
         ok = chdu.login();
     catch e
         disp('Error: ')

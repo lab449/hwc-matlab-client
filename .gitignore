@@ -1,6 +1,6 @@
 *
 !.gitignore
 !chdu_reset.m
-!chdu_connect.m
 !version.txt
+!chdu_connect.m
 !CHDU.m
