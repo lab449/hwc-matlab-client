@@ -27,7 +27,7 @@ classdef CHDU
            addpath(obj.file_directory)
        end
        function [obj, ok] = chdu_connect(obj)
-           obj.servername = 'http://127.0.0.1:5000';
+           obj.servername = 'http://hdu.vedyakov.com:5000';
            obj.connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 %            , ...

@@ -5,7 +5,7 @@ function chdu = chdu_connect()
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
-        version_response = webread(strcat('http://127.0.0.1:5000','/matlab_client_version'), connect_options);
+        version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_client_version'), connect_options);
         if version_response.isError
             return
         else
