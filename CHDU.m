@@ -65,9 +65,16 @@ classdef CHDU
            fprintf(fid, jsonencode(obj.auth_data));
        end
        function task = get_task(obj, number)
+           task = nan;
            request_msg.auth = obj.auth_data;
            request_msg.number = number;
-           response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
+           try
+               response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
+           catch
+               disp("You can not get this task")
+               return
+           end
+           task = struct();
            task.number = number;
            task.parameters = response_msg.data.parameters;
            task.answers = response_msg.data.answers;
