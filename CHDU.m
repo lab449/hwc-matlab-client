@@ -28,6 +28,7 @@ classdef CHDU
        end
        function [obj, ok] = chdu_connect(obj)
            obj.servername = 'http://hdu.vedyakov.com:5000';
+           obj.web_servername = 'http://hdu.vedyakov.com:80';
            obj.connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 %            , ...
@@ -72,7 +73,7 @@ classdef CHDU
            task.files = response_msg.data.files;
            for i=1:size(task.files,1)
                [p, name, ext] = fileparts(task.files{i});
-               websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.servername,task.files), obj.connect_options);
+               websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.web_servername,task.files), obj.connect_options);
            end 
        end
        function score = send_task(obj, task)
