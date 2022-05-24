@@ -4,6 +4,7 @@ classdef CHDU
       connect_options weboptions
       auth_filename string
       servername string
+      web_servername string
       file_directory string
    end
    methods
