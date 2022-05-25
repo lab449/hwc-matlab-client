@@ -1,5 +1,9 @@
 # HDU Getting started
 
+Status of HDU Homework Checker:  
+    <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available**
+<!--     <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available** -->
+
 ## Installation
 
 1. Create new working directory and open matlab here.  
@@ -72,4 +76,4 @@ chdu.send_task(task)
 ```
 <img src="https://i.imgur.com/MkJOnrn.png" alt="task_send" width="79%"/>
 
-You are right if you have nonzero score opposite the corresponding variable. Total score is sum of all scores. Also you can see count of attemps.
+You are right if you have nonzero score opposite the corresponding variable. The total score is the sum of all scores. You can also see the number of attempts.
