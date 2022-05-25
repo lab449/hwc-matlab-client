@@ -67,10 +67,10 @@ There is your task. In task structure you can see in variable  __files__ associa
 In struct __parameters__ presented input variables for modeling the system described in *pdf* file:  
 <img src="https://i.imgur.com/uFzZEGO.png" alt="task_parameters" width="79%"/>
 
-In struct __answers__ presented variables that you must fill instead of __\'?\'__:  
+In struct __answers__ presented variables that you must fill instead of __?__:  
 <img src="https://i.imgur.com/6OUihVT.png" alt="task_answers" width="79%"/>
 
-When you fill all variables in struct __answers__ instead of __\'?\'__ you can check it with:
+When you fill all variables in struct __answers__ instead of __?__ you can check it with:
 ```python
 chdu.send_task(task)
 ```
