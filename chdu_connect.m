@@ -1,7 +1,13 @@
 function chdu = chdu_connect()
-    fr = fopen('version.txt', 'r');
-    current_hash = fscanf(fr, '%s');
-    fclose(fr);
+    import java.security.*;
+    import java.math.*;
+    import java.lang.String;
+
+    md = MessageDigest.getInstance('MD5');
+    hash = md.digest(double( fileread('CHDU.m')));
+    bi = BigInteger(1, hash);
+    char(bi.toString(16));
+    current_hash = char(String.format('%032x', bi));
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
@@ -10,12 +16,10 @@ function chdu = chdu_connect()
             return
         else
             new_hash = version_response.data.md5;
+            disp(new_hash);
             check_hash = strcmp(new_hash, current_hash);
-%             disp(check_hash)
+            disp(check_hash);
             if ~check_hash
-                fr = fopen('version.txt', 'w');
-                fwrite(fr, new_hash);
-                fclose(fr);
                 disp("Please update client")
                 return
             end
