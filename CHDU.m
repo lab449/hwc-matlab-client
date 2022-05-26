@@ -37,13 +37,13 @@ classdef CHDU
            ok = webread(strcat(obj.servername,'/ok'), obj.connect_options);
        end
        function ok = login(obj)
+           ok = 1;
            try
                request_msg.auth = obj.auth_data;
                response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
            catch e
                ok = 0;
            end
-           ok = 1;
        end
        function obj = read_auth_config(obj)
            fid = fopen(obj.auth_filename); 

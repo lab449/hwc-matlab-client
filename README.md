@@ -25,9 +25,13 @@ Status of HDU Homework Checker:
     <img src="https://i.imgur.com/5j19zWW.png" alt="submit" width="90%"/>
 
 Another way (if you dont have git-upload-pack):
+
 1. Create new working directory and open matlab here. 
+
 2. Download [Client](https://github.com/ITMORobotics/hwc-matlab-client/archive/refs/heads/main.zip)
+
 3. Extract to working directory.
+
 4. Open as project with:
     ```
     HOME -> New -> Project -> From Folder
