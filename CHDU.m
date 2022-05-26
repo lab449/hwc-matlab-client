@@ -79,10 +79,16 @@ classdef CHDU
            task.parameters = response_msg.data.parameters;
            task.answers = response_msg.data.answers;
            task.files = response_msg.data.files;
-           for i=1:size(task.files,1)
-               [p, name, ext] = fileparts(task.files{i});
+           if class(task.files)=='ceil'
+               for i=1:size(task.files,1)
+                   disp(task.files)
+                   [p, name, ext] = fileparts(task.files{i});
+                   websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.web_servername,task.files), obj.connect_options);
+               end
+           elseif class(task.files)=='char'
+               [p, name, ext] = fileparts(task.files);
                websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.web_servername,task.files), obj.connect_options);
-           end 
+           end
        end
        function score = send_task(obj, task)
            request_msg.auth = obj.auth_data;
