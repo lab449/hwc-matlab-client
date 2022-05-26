@@ -16,9 +16,9 @@ function chdu = chdu_connect()
             return
         else
             new_hash = version_response.data.md5;
-            disp(new_hash);
+%             disp(new_hash);
             check_hash = strcmp(new_hash, current_hash);
-            disp(check_hash);
+%             disp(check_hash);
             if ~check_hash
                 disp("Please update client")
                 return
