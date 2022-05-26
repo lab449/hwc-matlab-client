@@ -36,6 +36,11 @@ Another way (if you dont have git-upload-pack):
     ```
     HOME -> New -> Project -> From Folder
     ```
+    ![image](https://user-images.githubusercontent.com/26273766/170517315-ce3cf2c6-e3a3-4f45-9e84-87ad9b5e2cd8.png)
+
+5. Select the project name and select the directory with the extracted archive:
+    <img src="https://user-images.githubusercontent.com/26273766/170517704-34ca774b-7208-4dfa-948a-4d352eba5adc.png" alt="zipopen" width="80%"/>
+
     
 ## Registration
 1. To start doing lab work, you must register in the system. To do this, enter in the Matlab console:  
@@ -43,13 +48,13 @@ Another way (if you dont have git-upload-pack):
     chdu = chdu_connect()
     ```
 2. Fill in *Full name* and click __Enter__. After that fill in other required fields:  
-    <img src="https://i.imgur.com/rbiY3JD.png" alt="submit" width="80%"/>
+    <img src="https://i.imgur.com/rbiY3JD.png" alt="submit1" width="80%"/>
     
     Check your EMail for getting authentification token:  
-    <img src="https://i.imgur.com/UYVTS1l.png" alt="submit" width="90%"/>
+    <img src="https://i.imgur.com/UYVTS1l.png" alt="submit2" width="90%"/>
     
     Enter this token:  
-    <img src="https://i.imgur.com/Fqgxtuv.png" alt="submit" width="80%"/>
+    <img src="https://i.imgur.com/Fqgxtuv.png" alt="submit3" width="80%"/>
 
 ## Usage
 
