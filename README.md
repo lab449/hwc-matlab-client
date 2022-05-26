@@ -1,5 +1,9 @@
 # HDU Getting started
 
+Status of HDU Homework Checker:  
+    <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available**
+<!--     <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available** -->
+
 ## Installation
 
 1. Create new working directory and open matlab here.  
@@ -47,22 +51,22 @@ Another way (if you dont have git-upload-pack):
 
 After registration you can connect at any time with   
 ```python
-    chdu = chdu_connect()
+chdu = chdu_connect()
 ```
 
 For getting first task(lab) you must type:  
 ```python
-    task = chdu.get_task(1)
+task = chdu.get_task(1)
 ```
 
 For other tasks(labs) you must type desired number:  
 ```python
-    task = chdu.get_task(laboratory_number)
+task = chdu.get_task(laboratory_number)
 ```
 
 The case will be generated on the first call. After that, you can retrieve your task at any time with  
 ```python
-    task = chdu.get_task(laboratory_number)
+task = chdu.get_task(laboratory_number)
 ```
 
 <img src="https://i.imgur.com/l8p7nNc.png" alt="task" width="79%"/>
@@ -72,10 +76,13 @@ There is your task. In task structure you can see in variable  __files__ associa
 In struct __parameters__ presented input variables for modeling the system described in *pdf* file:  
 <img src="https://i.imgur.com/uFzZEGO.png" alt="task_parameters" width="79%"/>
 
-In struct __answers__ presented variables that you must fill instead of __\'?\'__:  
+In struct __answers__ presented variables that you must fill instead of __?__:  
 <img src="https://i.imgur.com/6OUihVT.png" alt="task_answers" width="79%"/>
 
-When you fill all variables in struct __answers__ instead of __\'?\'__ you can check it:
+When you fill all variables in struct __answers__ instead of __?__ you can check it with:
+```python
+chdu.send_task(task)
+```
 <img src="https://i.imgur.com/MkJOnrn.png" alt="task_send" width="79%"/>
 
-You are right if you have nonzero score opposite the corresponding variable. Total score is sum of all scores. Also you can see count of attemps.
+You are right if you have nonzero score opposite the corresponding variable. The total score is the sum of all scores. You can also see the number of attempts.
