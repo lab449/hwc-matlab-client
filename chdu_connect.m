@@ -16,12 +16,10 @@ function chdu = chdu_connect()
             return
         else
             new_hash = version_response.data.md5;
-%             disp(new_hash);
             check_hash = strcmp(new_hash, current_hash);
-%             disp(check_hash);
             if ~check_hash
-                disp("Please update client")
-                return
+                websave('CHDU.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/CHDU.m')
+                disp("Сient has been updated")
             end
         end
     catch
