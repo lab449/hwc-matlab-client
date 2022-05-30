@@ -28,7 +28,7 @@ function chdu = chdu_connect()
     end
     ok = 0;
     chdu = nan;
-        chdu = CHDU();
+    chdu = CHDU();
     try
         ok = chdu.login();
     catch e
@@ -38,8 +38,11 @@ function chdu = chdu_connect()
         return
     end
     if ~ok
-        fprintf('Invalid authentification data. Please use first the chdu_reset() and then repeat chdu_connect()\n')
+        fprintf('\nInvalid authentification data. Please repeat chdu_connect()\n')
+        chdu_reset()
         fprintf('CHDU session can not be started\n')
+        chdu = nan;
+        return 
     else
         disp('Connection established')
     end
