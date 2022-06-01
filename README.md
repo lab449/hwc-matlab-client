@@ -13,33 +13,39 @@ Status of HDU Homework Checker:
     ```
     <img src="https://i.imgur.com/1SvD4lu.png" alt="From GIT" width="70%"/>
 
-3. Type into __Repository path__: https://github.com/ITMORobotics/hwc-matlab-client.git, and choose working directory in field __Sansdbox__ and click __Retrieve__:  
+3. Type into __Repository path__: https://github.com/ITMORobotics/hwc-matlab-client.git, and select the working directory in the field __Sansdbox__ and click __Retrieve__:  
     <img src="https://i.imgur.com/hoOAq5f.png" alt="github" width="95%"/>
-4. Choose project name and submit project creating:  
+4. Select project name and submit project creating:  
     <img src="https://i.imgur.com/WGze49L.png" alt="submit" width="75%"/>
 
-5. Later for openning the project you can use:  
+5. Close this window  
+    <img src="https://i.imgur.com/nSYLPgW.png" alt="submit" width="70%"/>
+
+
+6. Later for openning the project you can use:  
     ```
     Open -> Recent -> Your Project
     ```
     <img src="https://i.imgur.com/5j19zWW.png" alt="submit" width="90%"/>
 
-Another way (if you dont have git-upload-pack):
+**Another way** (if you dont have git-upload-pack):
 
-1. Create new working directory and open matlab here. 
+1. Create new working directory and open matlab here.  
 
-2. Download [Client](https://github.com/ITMORobotics/hwc-matlab-client/archive/refs/heads/main.zip)
+2. Download [Client](https://github.com/ITMORobotics/hwc-matlab-client/archive/refs/heads/main.zip)  
 
-3. Extract to working directory.
+3. Extract to working directory.  
 
-4. Open as project with:
+4. Open the extracted directory in left window:  
     ```
-    HOME -> New -> Project -> From Folder
+    HOME -> Open -> From Folder
     ```
-    ![image](https://user-images.githubusercontent.com/26273766/170517315-ce3cf2c6-e3a3-4f45-9e84-87ad9b5e2cd8.png)
+    ![](https://i.imgur.com/gbh8PeQ.png)
 
-5. Select the project name and select the directory with the extracted archive:
-    <img src="https://user-images.githubusercontent.com/26273766/170517704-34ca774b-7208-4dfa-948a-4d352eba5adc.png" alt="zipopen" width="80%"/>
+    
+5. Go to the extracted directory or add to path it:
+    <img src="https://i.imgur.com/Ufr4Mjo.png" alt="addfolder" width="100%"/>
+
 
     
 ## Registration
