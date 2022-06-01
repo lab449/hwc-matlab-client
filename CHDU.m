@@ -56,7 +56,7 @@ classdef CHDU
            fprintf('\n\n***Registration***\n');
            obj.auth_data.name = input('Your full name: ', 's');
            obj.auth_data.id = str2num(input('Your HDU ID: ', 's'));
-           if ~obj.auth_data.id
+           if isnan(obj.auth_data.id)
                obj = nan
                disp('Student id must be a number!')
                return
