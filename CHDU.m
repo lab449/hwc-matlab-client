@@ -55,12 +55,13 @@ classdef CHDU
            obj.auth_data = struct;
            fprintf('\n\n***Registration***\n');
            obj.auth_data.name = input('Your full name: ', 's');
-           obj.auth_data.id = str2num(input('Your HDU ID: ', 's'));
+           obj.auth_data.id = str2double(input('Your HDU ID: ', 's'));
            if isnan(obj.auth_data.id)
                obj = nan
                disp('Student id must be a number!')
                return
            end
+           obj.auth_data.id = int32(obj.auth_data.id)
            obj.auth_data.email = input('Type your affiliated with university EMail: ', 's');
            request_msg.auth = obj.auth_data;
            response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
