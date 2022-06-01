@@ -28,7 +28,9 @@ Status of HDU Homework Checker:
     ```
     <img src="https://i.imgur.com/5j19zWW.png" alt="submit" width="90%"/>
 
-**Another way** (if you dont have git-upload-pack):
+### Another way (if you dont have git-upload-pack)
+![](https://i.imgur.com/CT1H85y.png)
+If you get this error, you can download client in archive .zip:
 
 1. Create new working directory and open matlab here.  
 
