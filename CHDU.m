@@ -54,7 +54,7 @@ classdef CHDU
        function obj = get_auth_data(obj)
            obj.auth_data = struct;
            fprintf('\n\n***Registration***\n');
-           obj.auth_data.name = input('Your full name: ', 's');
+           obj.auth_data.name = strip(input('Your full name: ', 's'));
            obj.auth_data.id = str2double(input('Your HDU ID: ', 's'));
            if isnan(obj.auth_data.id)
                obj = nan;
@@ -62,10 +62,14 @@ classdef CHDU
                return
            end
            obj.auth_data.id = int32(obj.auth_data.id);
-           obj.auth_data.email = input('Type your affiliated with university EMail: ', 's');
-           request_msg.auth = obj.auth_data;
+           obj.auth_data.email = strip(input('Type your affiliated with university EMail: ', 's'));
+           obj.auth_data.password = input('Password: ', 's');
+           again_password = input('Retype your password: ', 's');
+           if ~strcmp(again_password, obj.auth_data.password)
+               obj = nan;
+               disp('Passwords do not match')
+           end
            response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
-           obj.auth_data.token = input('Key from EMail: ', 's');
 
            fid=fopen(obj.auth_filename,'w');
            fprintf(fid, jsonencode(obj.auth_data));
