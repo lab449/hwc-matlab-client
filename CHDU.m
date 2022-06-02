@@ -11,8 +11,7 @@ classdef CHDU
        function obj = CHDU()
            [obj, ok_code] = obj.chdu_connect();
            if ok_code.statusCode ~= 200
-               fprintf('Server error')
-               return
+               error('Server error')
            end
            
            obj.file_directory = 'files';
@@ -57,21 +56,21 @@ classdef CHDU
            obj.auth_data.name = strip(input('Your full name: ', 's'));
            obj.auth_data.id = str2double(input('Your HDU ID: ', 's'));
            if isnan(obj.auth_data.id)
-               obj = nan;
-               disp('Student id must be a number!')
-               return
+               error('Student id must be a number!')
            end
            obj.auth_data.id = int32(obj.auth_data.id);
            obj.auth_data.email = strip(input('Type your affiliated with university EMail: ', 's'));
            obj.auth_data.password = input('Password: ', 's');
            again_password = input('Retype your password: ', 's');
            if ~strcmp(again_password, obj.auth_data.password)
-               obj = nan;
-               disp('Passwords do not match')
+               error('Password does not match')
            end
            request_msg.auth = obj.auth_data;
-           response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
-
+           try
+               response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
+           catch e
+               error('Given invalid data for registration')
+           end
            fid=fopen(obj.auth_filename,'w');
            fprintf(fid, jsonencode(obj.auth_data));
        end
@@ -82,8 +81,7 @@ classdef CHDU
            try
                response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
            catch
-               disp("You can not get this task")
-               return
+               error("You can not get this task")
            end
            task = struct();
            task.number = number;
