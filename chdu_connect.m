@@ -9,7 +9,7 @@ function chdu = chdu_connect()
     char(bi.toString(16));
     current_hash = char(String.format('%032x', bi));
 
-    hash_launcher = md.digest(double( fileread('CHDU.m')));
+    hash_launcher = md.digest(double( fileread('chdu_connect.m')));
     bi = BigInteger(1, hash_launcher);
     char(bi.toString(16));
     current_launcher_hash = char(String.format('%032x', bi));
