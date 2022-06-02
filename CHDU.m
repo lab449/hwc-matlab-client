@@ -69,6 +69,7 @@ classdef CHDU
                obj = nan;
                disp('Passwords do not match')
            end
+           request_msg.auth = obj.auth_data;
            response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
 
            fid=fopen(obj.auth_filename,'w');
