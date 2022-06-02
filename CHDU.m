@@ -27,18 +27,17 @@ classdef CHDU
            addpath(obj.file_directory)
        end
        function [obj, ok] = chdu_connect(obj)
-           obj.servername = 'http://hdu.vedyakov.com:5000';
-           obj.web_servername = 'http://hdu.vedyakov.com:80';
+           obj.servername = 'https://hdu.vedyakov.com';
            obj.connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 %            , ...
 %                'CertificateFilename', 'client/hdu_checker_pub.pem');
-           ok = webread(strcat(obj.servername,'/ok'), obj.connect_options);
+           ok = webread(strcat(obj.servername,'/api/ok'), obj.connect_options);
        end
        function ok = login(obj)
            ok = 1;
            request_msg.auth = obj.auth_data;
-           response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
+           response_msg = webwrite(strcat(obj.servername,'/api/login'), request_msg, obj.connect_options);
            if response_msg.isError
                error(response_msg.message)
                ok=0;
@@ -67,7 +66,7 @@ classdef CHDU
                error('Password does not match')
            end
            request_msg.auth = obj.auth_data;
-           response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
+           response_msg = webwrite(strcat(obj.servername,'/api/register'), request_msg, obj.connect_options);
            if response_msg.isError
                error(response_msg.message)
            end
@@ -78,7 +77,7 @@ classdef CHDU
            task = nan;
            request_msg.auth = obj.auth_data;
            request_msg.number = number;
-           response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
+           response_msg = webwrite(strcat(obj.servername,'/api/gettask'), request_msg, obj.connect_options);
            if response_msg.isError
                error(response_msg.message)
            end
@@ -91,17 +90,17 @@ classdef CHDU
                for i=1:size(task.files,1)
                    disp(task.files)
                    [p, name, ext] = fileparts(task.files{i});
-                   websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.web_servername,task.files), obj.connect_options);
+                   websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.servername,task.files), obj.connect_options);
                end
            elseif class(task.files)=='char'
                [p, name, ext] = fileparts(task.files);
-               websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.web_servername,task.files), obj.connect_options);
+               websave(fullfile(obj.file_directory, strcat(name, ext)),strcat(obj.servername,task.files), obj.connect_options);
            end
        end
        function score = send_task(obj, task)
            request_msg.auth = obj.auth_data;
            request_msg.task = task;
-           response_msg = webwrite(strcat(obj.servername,'/send_task'), request_msg, obj.connect_options);
+           response_msg = webwrite(strcat(obj.servername,'/api/send_task'), request_msg, obj.connect_options);
            if response_msg.isError
                error(response_msg.message)
            end

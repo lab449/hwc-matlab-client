@@ -15,7 +15,7 @@ function chdu = chdu_connect()
 
         websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
 
-        version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_client_version'), connect_options);
+        version_response = webread(strcat('https://hdu.vedyakov.com','/api/matlab_client_version'), connect_options);
         new_hash = version_response.data.md5;
         check_hash = strcmp(new_hash, current_hash);
         if ~check_hash
