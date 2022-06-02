@@ -22,7 +22,7 @@ function chdu = chdu_connect()
         check_hash = strcmp(new_hash, current_launcher_hash);
         if ~check_hash
             websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
-            disp("Сient has been updated")
+            disp("Launcher has been updated")
         end
 
         version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_client_version'), connect_options);
