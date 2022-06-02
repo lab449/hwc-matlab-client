@@ -8,13 +8,18 @@ function chdu = chdu_connect()
     bi = BigInteger(1, hash);
     char(bi.toString(16));
     current_hash = char(String.format('%032x', bi));
+
+    hash_launcher = md.digest(double( fileread('CHDU.m')));
+    bi = BigInteger(1, hash_launcher);
+    char(bi.toString(16));
+    current_launcher_hash = char(String.format('%032x', bi));
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 
         launcher_version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_launcher_version'), connect_options);
         new_hash = launcher_version_response.data.md5;
-        check_hash = strcmp(new_hash, current_hash);
+        check_hash = strcmp(new_hash, current_launcher_hash);
         if ~check_hash
             websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
             disp("Сient has been updated")
