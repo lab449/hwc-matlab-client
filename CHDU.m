@@ -37,12 +37,14 @@ classdef CHDU
        end
        function ok = login(obj)
            ok = 1;
-           try
-               request_msg.auth = obj.auth_data;
-               response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
-           catch e
-               ok = 0;
+           request_msg.auth = obj.auth_data;
+           response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
+           disp(response_msg)
+           if response_msg.isError
+               error(response_msg.message)
+               ok=0;
            end
+
        end
        function obj = read_auth_config(obj)
            fid = fopen(obj.auth_filename); 
@@ -66,10 +68,9 @@ classdef CHDU
                error('Password does not match')
            end
            request_msg.auth = obj.auth_data;
-           try
-               response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
-           catch e
-               error('Given invalid data for registration')
+           response_msg = webwrite(strcat(obj.servername,'/register'), request_msg, obj.connect_options);
+           if response_msg.isError
+               error(response_msg.message)
            end
            fid=fopen(obj.auth_filename,'w');
            fprintf(fid, jsonencode(obj.auth_data));
@@ -78,10 +79,9 @@ classdef CHDU
            task = nan;
            request_msg.auth = obj.auth_data;
            request_msg.number = number;
-           try
-               response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
-           catch
-               error("You can not get this task")
+           response_msg = webwrite(strcat(obj.servername,'/gettask'), request_msg, obj.connect_options);
+           if response_msg.isError
+               error(response_msg.message)
            end
            task = struct();
            task.number = number;
@@ -103,6 +103,9 @@ classdef CHDU
            request_msg.auth = obj.auth_data;
            request_msg.task = task;
            response_msg = webwrite(strcat(obj.servername,'/send_task'), request_msg, obj.connect_options);
+           if response_msg.isError
+               error(response_msg.message)
+           end
            if response_msg.message ~= ""
                disp(response_msg.message)
            end

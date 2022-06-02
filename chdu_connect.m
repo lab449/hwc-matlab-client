@@ -20,33 +20,27 @@ function chdu = chdu_connect()
         launcher_version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_launcher_version'), connect_options);
         new_hash = launcher_version_response.data.md5;
         check_hash = strcmp(new_hash, current_launcher_hash);
-        if ~check_hash
-            websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
-            disp("Launcher has been updated")
-        end
+%         if ~check_hash
+%             websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
+%             disp("Launcher has been updated")
+%         end
 
         version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_client_version'), connect_options);
         new_hash = version_response.data.md5;
         check_hash = strcmp(new_hash, current_hash);
-        if ~check_hash
-            websave('CHDU.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/CHDU.m')
-            disp("Сient has been updated")
-        end
+%         if ~check_hash
+%             websave('CHDU.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/CHDU.m')
+%             disp("Сient has been updated")
+%         end
     catch
         disp('Can not get client version... Please try later')
         return
     end
-    ok = 0;
+
     chdu = nan;
     chdu = CHDU();
-    try
-        ok = chdu.login();
-    catch e
-        disp('Error: ')
-        disp(e)
-        disp("Invalid registration info")
-        return
-    end
+    ok = chdu.login();
+
     if ~ok
         fprintf('\nInvalid authentification data. Please repeat chdu_connect()\n')
         chdu_reset()
