@@ -39,7 +39,6 @@ classdef CHDU
            ok = 1;
            request_msg.auth = obj.auth_data;
            response_msg = webwrite(strcat(obj.servername,'/login'), request_msg, obj.connect_options);
-           disp(response_msg)
            if response_msg.isError
                error(response_msg.message)
                ok=0;
