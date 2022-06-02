@@ -10,9 +10,9 @@ function chdu = chdu_connect()
     current_hash = char(String.format('%032x', bi));
 
     hash_launcher = md.digest(double( fileread('chdu_connect.m')));
-    bi = BigInteger(1, hash_launcher);
-    char(bi.toString(16));
-    current_launcher_hash = char(String.format('%032x', bi));
+    bi2 = BigInteger(1, hash_launcher);
+    char(bi2.toString(16));
+    current_launcher_hash = char(String.format('%032x', bi2));
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
@@ -20,6 +20,8 @@ function chdu = chdu_connect()
         launcher_version_response = webread(strcat('http://hdu.vedyakov.com:5000','/matlab_launcher_version'), connect_options);
         new_hash = launcher_version_response.data.md5;
         check_hash = strcmp(new_hash, current_launcher_hash);
+        disp(current_launcher_hash)
+        disp(new_hash)
 %         if ~check_hash
 %             websave('chdu_connect.m', 'https://raw.githubusercontent.com/ITMORobotics/hwc-matlab-client/main/chdu_connect.m');
 %             disp("Launcher has been updated")
