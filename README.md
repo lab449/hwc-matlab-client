@@ -1,13 +1,21 @@
 # HDU Getting started
 
-Status of HDU Homework Checker:  
-    <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available**
-<!--     <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available** -->
+Status of CHDU Lab Checker:  
+<!--     <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available** -->
+<img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available**
+
+Available labs:
+1. Linear models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
+2. Nonlinear models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+3. Numerical methods <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
+4. Realistic simulation <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+5. Discrete-time models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+6. Cellular Automata <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
 
 ## Installation
 
 1. Create new working directory and open matlab here.  
-2. Download CHDU Lab checker using matlab Git Project:  
+2. Download CHDU Lab Checker using matlab Git Project:  
     ```
     HOME -> New -> Project -> From Git
     ```
@@ -34,7 +42,7 @@ If you get this error, you can download client in archive .zip:
 
 1. Create new working directory and open matlab here.  
 
-2. Download [Client](https://github.com/ITMORobotics/hwc-matlab-client/archive/refs/heads/main.zip)  
+2. Download [Client](https://github.com/ITMORobotics/hwc-matlab-client/zipball/main/)  
 
 3. Extract to working directory.  
 
@@ -45,7 +53,7 @@ If you get this error, you can download client in archive .zip:
     ![](https://i.imgur.com/gbh8PeQ.png)
 
     
-5. Go to the extracted directory or add to path it:
+5. Add to path it and go to the directory:
     <img src="https://i.imgur.com/Ufr4Mjo.png" alt="addfolder" width="100%"/>
 
 
@@ -56,13 +64,13 @@ If you get this error, you can download client in archive .zip:
     chdu = chdu_connect()
     ```
 2. Fill in *Full name* and click __Enter__. After that fill in other required fields:  
-    <img src="https://i.imgur.com/rbiY3JD.png" alt="submit1" width="80%"/>
-    
-    Check your EMail for getting authentification token:  
-    <img src="https://i.imgur.com/UYVTS1l.png" alt="submit2" width="90%"/>
-    
-    Enter this token:  
-    <img src="https://i.imgur.com/Fqgxtuv.png" alt="submit3" width="80%"/>
+    <img src="https://i.imgur.com/jcltADj.png" alt="submit2" width="100%"/>
+
+If you have reinstalled client you should use also:
+```python
+chdu = chdu_connect()
+```
+In this case please repeat your name, id, email and password provided earlier.
 
 ## Usage
 
@@ -103,3 +111,11 @@ chdu.send_task(task)
 <img src="https://i.imgur.com/MkJOnrn.png" alt="task_send" width="79%"/>
 
 You are right if you have nonzero score opposite the corresponding variable. The total score is the sum of all scores. You can also see the number of attempts.
+
+## Submission of laboratory work  
+    
+1. Upload the required answers to the CHDU Lab Checking system as above.
+
+2. Please send to `hdulab.checker@yandex.ru` from email, that you used to register in the CHDU Lab Checker:
+    - a zip-archive with all matlab files with comments, or in live script, or with some kind of brief report,
+    - your password for CHDU Lab Checker.
