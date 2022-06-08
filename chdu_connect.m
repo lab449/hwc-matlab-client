@@ -22,7 +22,7 @@ function chdu = chdu_connect(protocol)
         new_hash = version_response.data.md5;
         check_hash = strcmp(new_hash, current_hash);
         if ~check_hash
-            websave('CHDU.m', strcat(protocol, '://hdu.vedyakov.com/files/hwc-matlab-client/CHDU.m'))
+            websave('CHDU.m', strcat(protocol, '://hdu.vedyakov.com/files/hwc-matlab-client/CHDU.m'));
             disp("Сient has been updated")
         end
     catch
