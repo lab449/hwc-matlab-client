@@ -63,6 +63,10 @@ If you get this error, you can download client in archive .zip:
     ```python
     chdu = chdu_connect()
     ```
+    If you have a problems with SSL Certificate. Please type:
+    ```python
+    chdu = chdu_connect('http')
+    ```
 2. Fill in *Full name* and click __Enter__. After that fill in other required fields:  
     <img src="https://i.imgur.com/jcltADj.png" alt="submit2" width="100%"/>
 
@@ -70,6 +74,11 @@ If you have reinstalled client you should use also:
 ```python
 chdu = chdu_connect()
 ```
+or to connect via http:
+```python
+chdu = chdu_connect('http')
+```
+
 In this case please repeat your name, id, email and password provided earlier.
 
 ## Usage
@@ -77,6 +86,10 @@ In this case please repeat your name, id, email and password provided earlier.
 After registration you can connect at any time with   
 ```python
 chdu = chdu_connect()
+```
+or to connect via http:
+```python
+chdu = chdu_connect('http')
 ```
 
 For getting first task(lab) you must type:  
