@@ -9,7 +9,7 @@ Available labs:
 2. Nonlinear models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
 3. Numerical methods <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
 4. Realistic simulation <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
-5. Discrete-time models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+5. Discrete-time models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
 6. Cellular Automata <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
 
 ## Installation
