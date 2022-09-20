@@ -6,11 +6,11 @@ Status of CHDU Lab Checker:
 
 Available labs:
 1. Linear models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-2. Nonlinear models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+2. Nonlinear models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
 3. Numerical methods <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-4. Realistic simulation <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
-5. Discrete-time models <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
-6. Cellular Automata <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/>
+4. Realistic simulation <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
+5. Discrete-time models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
+6. Cellular Automata <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
 
 ## Installation
 
@@ -61,22 +61,22 @@ If you get this error, you can download client in archive .zip:
 ## Registration
 1. To start doing lab work, you must register in the system. To do this, enter in the Matlab console:  
     ```python
-    chdu = chdu_connect()
+    chdu = chdu_connect('SERVER_URL')
     ```
-    If you have a problems with SSL Certificate. Please type:
+    for example:
     ```python
-    chdu = chdu_connect('http')
+    chdu = chdu_connect('https://hwc-test-server.ru')
+    ```
+    If you have a problems with SSL Certificate. Please use `http` instead of `https`, for example:
+    ```python
+    chdu = chdu_connect('http://hwc-test-server.ru')
     ```
 2. Fill in *Full name* and click __Enter__. After that fill in other required fields:  
     <img src="https://i.imgur.com/jcltADj.png" alt="submit2" width="100%"/>
 
 If you have reinstalled client you should use also:
 ```python
-chdu = chdu_connect()
-```
-or to connect via http:
-```python
-chdu = chdu_connect('http')
+chdu = chdu_connect('SERVER_URL')
 ```
 
 In this case please repeat your name, id, email and password provided earlier.
@@ -85,12 +85,9 @@ In this case please repeat your name, id, email and password provided earlier.
 
 After registration you can connect at any time with   
 ```python
-chdu = chdu_connect()
+chdu = chdu_connect('SERVER_URL')
 ```
-or to connect via http:
-```python
-chdu = chdu_connect('http')
-```
+or to connect via http please change `https` on `http`.
 
 For getting first task(lab) you must type:  
 ```python

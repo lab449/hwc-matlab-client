@@ -8,8 +8,8 @@ classdef CHDU
       file_directory string
    end
    methods
-       function obj = CHDU(protocol)
-           [obj, ok_code] = obj.chdu_connect(protocol);
+       function obj = CHDU(server)
+           [obj, ok_code] = obj.chdu_connect(server);
            if ok_code.statusCode ~= 200
                error('Server error')
            end
@@ -26,8 +26,8 @@ classdef CHDU
            end
            addpath(obj.file_directory)
        end
-       function [obj, ok] = chdu_connect(obj, protocol)
-           obj.servername = strcat(protocol,'://hdu.vedyakov.com');
+       function [obj, ok] = chdu_connect(obj, server)
+           obj.servername = server;
            obj.connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 %            , ...
