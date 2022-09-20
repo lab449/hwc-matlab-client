@@ -13,7 +13,7 @@ classdef HWC
                error('Server error')
            end
            
-           obj.file_directory = 'files';
+           obj.file_directory = './files';
            obj.auth_filename = 'auth_config.json';
            if exist(obj.auth_filename, 'file') == 2
                obj = obj.read_auth_config();
