@@ -1,6 +1,6 @@
 # HDU Getting started
 
-Status of CHDU Lab Checker:  
+Status of HWC Lab Checker:  
 <!--     <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available** -->
 <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available**
 
@@ -15,7 +15,7 @@ Available labs:
 ## Installation
 
 1. Create new working directory and open matlab here.  
-2. Download CHDU Lab Checker using matlab Git Project:  
+2. Download HWC Lab Checker using matlab Git Project:  
     ```
     HOME -> New -> Project -> From Git
     ```
@@ -61,22 +61,22 @@ If you get this error, you can download client in archive .zip:
 ## Registration
 1. To start doing lab work, you must register in the system. To do this, enter in the Matlab console:  
     ```python
-    chdu = chdu_connect('SERVER_URL')
+    hwc = hwc_connect('SERVER_URL')
     ```
     for example:
     ```python
-    chdu = chdu_connect('https://hwc-test-server.ru')
+    hwc = hwc_connect('https://hwc-test-server.ru')
     ```
     If you have a problems with SSL Certificate. Please use `http` instead of `https`, for example:
     ```python
-    chdu = chdu_connect('http://hwc-test-server.ru')
+    hwc = hwc_connect('http://hwc-test-server.ru')
     ```
 2. Fill in *Full name* and click __Enter__. After that fill in other required fields:  
     <img src="https://i.imgur.com/jcltADj.png" alt="submit2" width="100%"/>
 
 If you have reinstalled client you should use also:
 ```python
-chdu = chdu_connect('SERVER_URL')
+hwc = hwc_connect('SERVER_URL')
 ```
 
 In this case please repeat your name, id, email and password provided earlier.
@@ -85,23 +85,23 @@ In this case please repeat your name, id, email and password provided earlier.
 
 After registration you can connect at any time with   
 ```python
-chdu = chdu_connect('SERVER_URL')
+hwc = hwc_connect('SERVER_URL')
 ```
 or to connect via http please change `https` on `http`.
 
 For getting first task(lab) you must type:  
 ```python
-task = chdu.get_task(1)
+task = hwc.get_task(1)
 ```
 
 For other tasks(labs) you must type desired number:  
 ```python
-task = chdu.get_task(laboratory_number)
+task = hwc.get_task(laboratory_number)
 ```
 
 The case will be generated on the first call. After that, you can retrieve your task at any time with  
 ```python
-task = chdu.get_task(laboratory_number)
+task = hwc.get_task(laboratory_number)
 ```
 
 <img src="https://i.imgur.com/l8p7nNc.png" alt="task" width="79%"/>
@@ -116,7 +116,7 @@ In struct __answers__ presented variables that you must fill instead of __?__:
 
 When you fill all variables in struct __answers__ instead of __?__ you can check it with:
 ```python
-chdu.send_task(task)
+hwc.send_task(task)
 ```
 <img src="https://i.imgur.com/MkJOnrn.png" alt="task_send" width="79%"/>
 
@@ -124,8 +124,8 @@ You are right if you have nonzero score opposite the corresponding variable. The
 
 ## Submission of laboratory work  
     
-1. Upload the required answers to the CHDU Lab Checking system as above.
+1. Upload the required answers to the HWC Lab Checking system as above.
 
-2. Please send to `hdulab.checker@yandex.ru` from email, that you used to register in the CHDU Lab Checker:
+2. Please send to `hdulab.checker@yandex.ru` from email, that you used to register in the HWC Lab Checker:
     - a zip-archive with all matlab files with comments, or in live script, or with some kind of brief report,
-    - your password for CHDU Lab Checker.
+    - your password for HWC Lab Checker.
