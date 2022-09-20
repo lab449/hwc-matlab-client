@@ -1,6 +1,6 @@
 *
 !.gitignore
-!chdu_reset.m
+!hwc_reset.m
 !version.txt
-!chdu_connect.m
-!CHDU.m
+!hwc_connect.m
+!HWC.m
