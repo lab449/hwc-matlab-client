@@ -16,7 +16,7 @@ function hwc = hwc_connect(server)
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 
-        websave('hwc_connect.m', strcat(server, '/clints/hwc-matlab-client/hwc_connect.m'));
+        websave('hwc_connect.m', strcat(server, '/clients/hwc-matlab-client/hwc_connect.m'));
 
         version_response = webread(strcat(server,'/api/matlab/client_version'), connect_options);
         new_hash = version_response.data.md5;
