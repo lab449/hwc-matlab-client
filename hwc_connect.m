@@ -16,13 +16,13 @@ function hwc = hwc_connect(server)
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 
-%         websave('hwc_connect.m', strcat(protocol, '://hdu.vedyakov.com/files/hwc-matlab-client/hwc_connect.m'));
+        websave('hwc_connect.m', strcat(server, '/files/hwc-matlab-client/hwc_connect.m'));
 
         version_response = webread(strcat(server,'/api/matlab/client_version'), connect_options);
         new_hash = version_response.data.md5;
         check_hash = strcmp(new_hash, current_hash);
         if ~check_hash
-%             websave('HWC.m', strcat(server, '/files/hwc-matlab-client/HWC.m'));
+            websave('HWC.m', strcat(server, '/files/hwc-matlab-client/HWC.m'));
             disp("Сient has been updated")
         end
     catch
