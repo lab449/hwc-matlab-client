@@ -12,7 +12,7 @@ function hwc = hwc_connect(server)
     char(bi.toString(16));
     current_hash = char(String.format('%032x', bi));
     
-%     try
+    try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
 
@@ -25,10 +25,10 @@ function hwc = hwc_connect(server)
             websave('HWC.m', strcat(server, '/clients/hwc-matlab-client/HWC.m'));
             disp("Сient has been updated")
         end
-%     catch
-%         disp('Can not get client version... Please try later')
-%         return
-%     end
+    catch
+        disp('Can not get client version... Please try later')
+        return
+    end
     hwc = nan;
     hwc = HWC(server);
     ok = hwc.login();
