@@ -1,16 +1,9 @@
-# HDU Getting started
+# hwc-matlab-client
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/26273766/190159953-ad5e1969-7da5-43bf-8437-16cec4d9d7c9.svg" width="400"/>
+</p>
 
-Status of HWC Lab Checker:  
-<!--     <img src="https://i.imgur.com/s50aPvE.png" alt="submit" width="3%"/> **not available** -->
-<img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/> **available**
-
-Available labs:
-1. Linear models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-2. Nonlinear models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-3. Numerical methods <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-4. Realistic simulation <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-5. Discrete-time models <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
-6. Cellular Automata <img src="https://i.imgur.com/XtUlbdX.png" alt="submit" width="3%"/>
+Homework Checker client for matlab. This is the client side of the [HWC](https://github.com/ITMORobotics/hwc-server) application.
 
 ## Installation
 
