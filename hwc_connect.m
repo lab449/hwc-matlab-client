@@ -15,15 +15,15 @@ function hwc = hwc_connect(server)
     try
         connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
-
-        websave('hwc_connect.m', strcat(server, '/clients/hwc-matlab-client/hwc_connect.m'));
+        connect_options.CertificateFilename=(''); 
+        websave('hwc_connect.m', strcat(server, '/clients/hwc-matlab-client/hwc_connect.m'), connect_options);
 
         version_response = webread(strcat(server,'/api/matlab/client_version'), connect_options);
         new_hash = version_response.data.md5;
         check_hash = strcmp(new_hash, current_hash);
         if ~check_hash
-            websave('HWC.m', strcat(server, '/clients/hwc-matlab-client/HWC.m'));
-            disp("Сient has been updated")
+            websave('HWC.m', strcat(server, '/clients/hwc-matlab-client/HWC.m'), connect_options);
+            disp("Clien version is too old. Please update it")
         end
     catch
         disp('Can not get client version... Please try later')

@@ -29,6 +29,8 @@ classdef HWC
            obj.servername = server;
            obj.connect_options = weboptions('ContentType', 'auto', ...
                'CharacterEncoding', 'UTF-8');
+           obj.connect_options.CertificateFilename=(''); 
+           
            ok = webread(strcat(obj.servername,'/api/ok'), obj.connect_options);
        end
        function ok = login(obj)
