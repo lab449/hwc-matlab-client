@@ -48,6 +48,7 @@ classdef HWC
            str = char(fread(fid,inf)'); 
            fclose(fid);
            obj.auth_data = jsondecode(str);
+           obj.auth_data.id = int32(obj.auth_data.id);
        end
        function obj = get_auth_data(obj)
            obj.auth_data = struct;
